@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    /*background-image: url('imagens/aviao-no-ceu.webp');
+    background-size:cover;
+    background-repeat: no-repeat;*/
+    background-color: #f0f9ff;
+}
+
+/*.imagem-fundo{
+    display: flex;
+    align-items: center;
+    height:800px;
+    opacity: 0.2;
+    padding
+}
+
+img{
+    border: none;
+    border-radius: 200px;
+    
+   
+}*/
+
+
