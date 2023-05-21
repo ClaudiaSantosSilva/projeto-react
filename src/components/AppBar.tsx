@@ -1,4 +1,5 @@
 import { FcGlobe as LogoIcon } from "react-icons/fc";
+import { Link } from "react-router-dom"
 
 export function AppBar() {
     return (
@@ -8,9 +9,9 @@ export function AppBar() {
         </div>
 
         <div className="flex items-end my-2">
-          <button className="bg-blue-400 text-slate-50 font-bold uppercase py-1 px-3 mx-2 rounded-md">
-            Criar post
-          </button>
+          <Link to="/criar-posts" className="bg-blue-400 text-slate-50 font-bold uppercase py-1 px-3 mx-2 rounded-md">
+            Criar posts
+          </Link>
         </div>
       </header>
     );
@@ -18,10 +19,10 @@ export function AppBar() {
 
 function Logo() {
   return (
-    <a href="/">
+    <Link to="/">
       <LogoIcon className="text-5xl" />
       <h1 className="text-lg uppercase font-bold">Viagens pelo mundo</h1>
-    </a>
+    </Link>
   );
 }
 
