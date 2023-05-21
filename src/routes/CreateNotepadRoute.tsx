@@ -1,3 +1,5 @@
+import { Button } from "../components/Button"
+
 export function CreateNotepadRoute() {
   return (
     <div>
@@ -6,7 +8,7 @@ export function CreateNotepadRoute() {
         <input className="w-96 p-1" type="text" placeholder="Digite o título" />
         <input className="w-96 p-1" type="text" placeholder="Digite o subtítulo" />
         <textarea className="w-96 h-48 p-1" placeholder="Digite o conteúdo" />
-        <button className="bg-blue-400 hover:bg-blue-600 p-4 rounded-lg uppercase" type="submit">Enviar</button>
+        <Button type="submit">Enviar</Button>
       </form>
     </div>
   );
