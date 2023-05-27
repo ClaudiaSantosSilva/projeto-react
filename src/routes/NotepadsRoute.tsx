@@ -1,10 +1,13 @@
 import { axiosapi } from "../axiosapi"
-import { useState } from "react"
+import { FaSpinner } from "react-icons/fa"
+import { useState, useEffect } from "react"
 
 const initialPosts=[]
+const initialLoading = true
 
 export function NotepadsRoute() {
 const [posts, setPosts]=useState(initialPosts)
+const [loading, setLoading]=useState(initialLoading)
 
 async function loadPosts(){
     const response = await axiosapi.get('/notepads')
@@ -12,10 +15,24 @@ async function loadPosts(){
     setPosts(nextPosts)
 }
 
-loadPosts()
+useEffect(()=>{
+    loadPosts() 
+}, [])
+
+useEffect (()=>{
+    if(posts.length > 0){
+        setLoading (false)
+    }
+}, [posts])
+
 
   return (
     <div className="bg-white m-4 rounded-lg shadow-md p-4">
+        {loading && (
+        <div className="flex justify-center">
+        <FaSpinner className="text-2xl text-blue-700 animate-spin" />
+        </div>
+        )}
         {posts.map((post) => {
           return (
             <div key={post.id} className="border-b py-2">
