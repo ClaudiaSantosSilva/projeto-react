@@ -2,6 +2,7 @@ import { axiosapi } from "../axiosapi"
 import { FaSpinner } from "react-icons/fa"
 import { Card } from "../components/Card"
 import { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 
 const initialPosts=[]
 const initialLoading = true
@@ -36,7 +37,8 @@ useEffect (()=>{
         )}
         {posts.map((post) => {
           return (
-            <div key={post.id} className="border-b py-2">
+            <Link to={`/ver-post/${post.id}`} 
+            key={post.id} className="border-b py-2 cursor-pointer block">
               <span className="text-sm text-gray-500">
                 {new Date (post.created_at).toLocaleDateString()}
               </span>
@@ -44,7 +46,7 @@ useEffect (()=>{
                 {post.title}
               </h2>
               <p>{post.subtitle}</p>
-            </div>
+            </Link>
           );
         })}
     </Card>

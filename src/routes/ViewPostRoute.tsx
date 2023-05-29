@@ -28,7 +28,8 @@ export function ViewPostRoute(){
 
     return (
     <Card>
-        <span className="text-gray-400">#{post.id}</span>
+        <div className="text-gray-400 mb-2">#{post.id}</div>
+        <div className="text-gray-400">{new Date(post.created_at).toLocaleDateString()}</div>
         <Title>{post.title}</Title>
         <p className="mb-4 text-gray-500">{post.subtitle}</p>
         <p>{post.content}</p>
