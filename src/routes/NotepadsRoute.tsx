@@ -37,14 +37,16 @@ useEffect (()=>{
         )}
         {posts.map((post) => {
           return (
-            <Link to={`/ver-post/${post.id}`} 
-            key={post.id} className="border-b py-2 cursor-pointer block">
+            <Link
+              to={`/ver-post/${post.id}`}
+              key={post.id}
+              className="border-b py-2 cursor-pointer block"
+            >
+              <div className="text-gray-400 mb-2">#{post.id}</div>
               <span className="text-sm text-gray-500">
-                {new Date (post.created_at).toLocaleDateString()}
+                {new Date(post.created_at).toLocaleDateString()}
               </span>
-              <h2 className="text-lg font-bold leading-tight">
-                {post.title}
-              </h2>
+              <h2 className="text-lg font-bold leading-tight">{post.title}</h2>
               <p>{post.subtitle}</p>
             </Link>
           );

@@ -2,7 +2,9 @@ import { useState, useEffect} from "react"
 import { axiosapi } from "../axiosapi"
 import { Card } from "../components/Card"
 import { Title } from "../components/Title"
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
+import { Button } from "../components/Button"
+import toast from "react-simple-toasts"
 
 const initialPost = {
     id:0,
@@ -14,6 +16,7 @@ const initialPost = {
 
 export function ViewPostRoute(){
     const params = useParams()
+    const navigate = useNavigate()
     const [post,setPost] = useState(initialPost)
 
     async function loadPost(){
@@ -22,12 +25,23 @@ export function ViewPostRoute(){
         setPost(nextPost)
     }
 
+    async function deletePost(){
+        const response = await axiosapi.delete(`/notepads/${params.id}`);
+        if (response.data.success === true){
+        toast(`O post #${post.id} foi deletado com sucesso!`);
+        navigate("/ver-posts");
+        } else {
+            toast ("Houve um erro ao deletar o post")
+        }
+    }
+
     useEffect(()=>{
         loadPost()
     },[])
 
     return (
     <Card>
+        <Button className="bg-red-500 hover:bg-red-700" onClick={deletePost}>Deletar</Button>
         <div className="text-gray-400 mb-2">#{post.id}</div>
         <div className="text-gray-400">{new Date(post.created_at).toLocaleDateString()}</div>
         <Title>{post.title}</Title>
