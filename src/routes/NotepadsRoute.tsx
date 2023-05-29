@@ -1,5 +1,6 @@
 import { axiosapi } from "../axiosapi"
 import { FaSpinner } from "react-icons/fa"
+import { Card } from "../components/Card"
 import { useState, useEffect } from "react"
 
 const initialPosts=[]
@@ -27,7 +28,7 @@ useEffect (()=>{
 
 
   return (
-    <div className="bg-white m-4 rounded-lg shadow-md p-4">
+    <Card>
         {loading && (
         <div className="flex justify-center">
         <FaSpinner className="text-2xl text-blue-700 animate-spin" />
@@ -46,7 +47,7 @@ useEffect (()=>{
             </div>
           );
         })}
-    </div>
+    </Card>
     
   );
 }
