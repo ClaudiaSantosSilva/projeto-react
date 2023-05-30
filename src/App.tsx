@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {AppBar} from "./components/AppBar"
+import { Footer } from "./components/Footer"
 import { Home } from "./routes/Home"
 import { NotepadsRoute } from "./routes/NotepadsRoute"
 import { CreateNotepadRoute } from "./routes/CreateNotepadRoute"
@@ -17,6 +18,7 @@ export default function App() {
           <Route path="/criar-posts" element={<CreateNotepadRoute />} />
           <Route path="/ver-post/:id" element={<ViewPostRoute />} />
         </Routes>
+        <Footer />
       </div>
     </BrowserRouter>
   );

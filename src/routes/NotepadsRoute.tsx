@@ -29,29 +29,30 @@ useEffect (()=>{
 
 
   return (
-    <Card>
-        {loading && (
-        <div className="flex justify-center">
-        <FaSpinner className="text-2xl text-blue-700 animate-spin" />
-        </div>
-        )}
-        {posts.map((post) => {
-          return (
-            <Link
-              to={`/ver-post/${post.id}`}
-              key={post.id}
-              className="border-b py-2 cursor-pointer block"
-            >
-              <div className="text-gray-400 mb-2">#{post.id}</div>
-              <span className="text-sm text-gray-500">
-                {new Date(post.created_at).toLocaleDateString()}
-              </span>
-              <h2 className="text-lg font-bold leading-tight">{post.title}</h2>
-              <p>{post.subtitle}</p>
-            </Link>
+    <>
+      {loading && (
+          <div className="flex justify-center">
+          <FaSpinner className="text-2xl text-blue-700 animate-spin" />
+          </div>
+          )}
+          {posts.map((post) => {
+              return (
+                  <Card>
+                  <Link
+                  to={`/ver-post/${post.id}`}
+                  key={post.id}
+                  className="border-b py-2 cursor-pointer block"
+                  >
+                  <div className="text-gray-400 mb-2">#{post.id}</div>
+                  <span className="text-sm text-gray-500">
+                  {new Date(post.created_at).toLocaleDateString()}
+                  </span>
+                  <h2 className="text-lg font-bold leading-tight">{post.title}</h2>
+                  <p>{post.subtitle}</p>
+                  </Link>
+                  </Card>
           );
         })}
-    </Card>
-    
+    </>
   );
 }

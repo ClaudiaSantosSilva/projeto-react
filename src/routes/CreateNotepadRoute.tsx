@@ -10,7 +10,7 @@ export function CreateNotepadRoute() {
   return (
     <div>
       <form
-        className="flex flex-col gap-4 md:max-w-screen-md md:mx-auto"
+        className="flex flex-col gap-4 mx-2 md:max-w-screen-md md:mx-auto"
         onSubmit={(event) => {
           event.preventDefault();
 

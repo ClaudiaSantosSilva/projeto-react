@@ -40,13 +40,22 @@ export function ViewPostRoute(){
     },[])
 
     return (
-    <Card>
-        <Button className="bg-red-500 hover:bg-red-700" onClick={deletePost}>Deletar</Button>
+      <Card>
+        <div className="flex justify-end">
+        <Button
+          className="bg-red-500 hover:bg-red-700"
+          onClick={deletePost}
+        >
+          Deletar
+        </Button>
+        </div>
         <div className="text-gray-400 mb-2">#{post.id}</div>
-        <div className="text-gray-400">{new Date(post.created_at).toLocaleDateString()}</div>
+        <div className="text-gray-400">
+          {new Date(post.created_at).toLocaleDateString()}
+        </div>
         <Title>{post.title}</Title>
         <p className="mb-4 text-gray-500">{post.subtitle}</p>
         <p>{post.content}</p>
-    </Card>
-    )
+      </Card>
+    );
 }

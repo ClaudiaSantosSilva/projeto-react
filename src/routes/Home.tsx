@@ -8,7 +8,7 @@ export function Home() {
       <Link to="/ver-posts" className="m-10">
         <VaParaIcon className="text-5xl" />
         <h1 className="text-lg uppercase font-mono text-center">
-          Conheça os posts sobre diversas partes do mundo e boa viagem!
+          Conheça os meus posts sobre diversas partes do mundo e boa viagem!
         </h1>
       </Link>
 
