@@ -41,7 +41,7 @@ useEffect (()=>{
                   <Link
                   to={`/ver-post/${post.id}`}
                   key={post.id}
-                  className="border-b py-2 cursor-pointer block"
+                  className="py-2 cursor-pointer block"
                   >
                   <div className="text-gray-400 mb-2">#{post.id}</div>
                   <span className="text-sm text-gray-500">
