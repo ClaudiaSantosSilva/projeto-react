@@ -40,14 +40,11 @@ export function ViewPostRoute(){
     },[])
 
     return (
-      <Card>
+      <Card className="md:w-4/5 lg:w-5/6 mx-20">
         <div className="flex justify-end">
-        <Button
-          className="bg-red-500 hover:bg-red-700"
-          onClick={deletePost}
-        >
-          Deletar
-        </Button>
+          <Button className="bg-red-500 hover:bg-red-700" onClick={deletePost}>
+            Deletar
+          </Button>
         </div>
         <div className="text-gray-400 mb-2">#{post.id}</div>
         <div className="text-gray-400">
