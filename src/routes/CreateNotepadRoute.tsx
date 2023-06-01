@@ -2,6 +2,7 @@ import {useState} from "react"
 import { Button } from "../components/Button"
 import { TextField } from "../components/TextField"
 import { TextArea } from "../components/TextArea"
+import { Title } from "../components/Title"
 
 export function CreateNotepadRoute() {
     const [title, setTitle] = useState("")
@@ -23,9 +24,9 @@ export function CreateNotepadRoute() {
           setContent(" ");
         }}
       >
-        <h1 className="flex justify-center font-bold uppercase mt-10 font-mono text-2xl">
+        <Title className="flex justify-center uppercase mt-10 font-mono">
           Criar posts
-        </h1>
+        </Title>
 
         <TextField
           className="px-2 py-1 rounded-md border focus:border-blue-500 outline-none"

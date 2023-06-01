@@ -1,6 +1,7 @@
 import { FcAdvance as VaParaIcon } from "react-icons/fc";
 import { Link } from "react-router-dom"
 import { Image } from "../components/Image"
+import { Title } from "../components/Title"
 
 
 export function Home() {
@@ -8,9 +9,9 @@ export function Home() {
     <div className="flex flex-col items-center mt-20">
       <Link to="/ver-posts" className="m-10">
         <VaParaIcon className="text-5xl" />
-        <h1 className="text-lg uppercase font-mono text-center">
+        <Title className="text-lg uppercase font-thin font-mono text-center">
           Conheça os meus posts sobre diversas partes do mundo e boa viagem!
-        </h1>
+        </Title>
       </Link>
 
       <div className="m-20">
