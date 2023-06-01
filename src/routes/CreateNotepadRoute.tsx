@@ -1,5 +1,7 @@
 import {useState} from "react"
 import { Button } from "../components/Button"
+import { TextField } from "../components/TextField"
+import { TextArea } from "../components/TextArea"
 
 export function CreateNotepadRoute() {
     const [title, setTitle] = useState("")
@@ -25,18 +27,18 @@ export function CreateNotepadRoute() {
           Criar posts
         </h1>
 
-        <input
+        <TextField
           className="px-2 py-1 rounded-md border focus:border-blue-500 outline-none"
           value={title}
           onChange={(event) => {
-            const novoTitle = event.target.value;
+            const novoTitle = event.currentTarget.value;
             setTitle(novoTitle);
           }}
           type="text"
           placeholder="Digite o título"
         />
 
-        <input
+        <TextField
           className="px-2 py-1 rounded-md border focus:border-blue-500 outline-none"
           value={subtitle}
           onChange={(event) => {
@@ -47,10 +49,10 @@ export function CreateNotepadRoute() {
           placeholder="Digite o subtítulo"
         />
 
-        <textarea
+        <TextArea
           className="px-2 py-1 rounded-md border focus:border-blue-500 outline-none"
           value={content}
-          rows={4}
+          row={4}
           onChange={(event) => {
             const novoContent = event.target.value;
             setContent(novoContent);

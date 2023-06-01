@@ -1,14 +1,18 @@
 type TextFieldProps = {
-    defaultText: string;
+    placeholder: string;
     value:string;
+    className?:string
+    type?:string
+    onChange: (event:React.ChangeEvent<HTMLInputElement>)=> void
 }
 
-export function TextField({defaultText,value}:TextFieldProps){
+export function TextField({placeholder,value, onChange, className, type}:TextFieldProps){
     return(
         <input
-        placeholder={defaultText}
+        placeholder={placeholder}
         value={value}
-        type="text"
-        className="border rounded-lg outline-none focus:border-green-500 py-1 px-2" />
+        type= {type}
+        onChange={onChange}
+        className={className} />
     )
 }
