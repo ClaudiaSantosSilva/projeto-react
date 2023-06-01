@@ -31,7 +31,7 @@ useEffect (()=>{
   return (
     <>
       {loading && (
-          <div className="flex justify-center">
+          <div className="flex justify-center mt-2">
           <FaSpinner className="text-2xl text-blue-700 animate-spin" />
           </div>
           )}

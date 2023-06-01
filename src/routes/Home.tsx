@@ -1,5 +1,6 @@
 import { FcAdvance as VaParaIcon } from "react-icons/fc";
 import { Link } from "react-router-dom"
+import { Image } from "../components/Image"
 
 
 export function Home() {
@@ -13,7 +14,7 @@ export function Home() {
       </Link>
 
       <div className="m-20">
-        <img src="imagens/aviao-no-ceu.webp" className="rounded-full" />
+        <Image alt= "imagem da home" src="imagens/aviao-no-ceu.webp" className="rounded-full" />
       </div>
     </div>
   );

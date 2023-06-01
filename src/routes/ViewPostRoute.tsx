@@ -34,7 +34,7 @@ export function ViewPostRoute(){
             toast ("Houve um erro ao deletar o post")
         }
     }
-
+     
     useEffect(()=>{
         loadPost()
     },[])
@@ -53,6 +53,9 @@ export function ViewPostRoute(){
         <Title>{post.title}</Title>
         <p className="mb-4 text-gray-500">{post.subtitle}</p>
         <p>{post.content}</p>
+        <div className="flex justify-end">
+          <Button onClick={() => navigate("/ver-posts")}>Voltar</Button>
+        </div>
       </Card>
     );
 }
