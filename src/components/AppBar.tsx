@@ -1,5 +1,6 @@
 import { FcGlobe as LogoIcon } from "react-icons/fc";
 import { Link } from "react-router-dom"
+import { Title } from "../components/Title"
 
 export function AppBar() {
     return (
@@ -21,7 +22,7 @@ function Logo() {
   return (
     <Link to="/">
       <LogoIcon className="text-5xl" />
-      <h1 className="text-lg uppercase font-bold">Viagens pelo mundo</h1>
+      <Title className="uppercase">Viagens pelo mundo</Title>
     </Link>
   );
 }

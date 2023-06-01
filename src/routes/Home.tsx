@@ -9,7 +9,7 @@ export function Home() {
     <div className="flex flex-col items-center mt-20">
       <Link to="/ver-posts" className="m-10">
         <VaParaIcon className="text-5xl" />
-        <Title className="text-lg uppercase font-thin font-mono text-center">
+        <Title className="text-lg uppercase font-thin font-mono text-center lg:text-2xl">
           Conheça os meus posts sobre diversas partes do mundo e boa viagem!
         </Title>
       </Link>

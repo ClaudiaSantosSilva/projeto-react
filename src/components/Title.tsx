@@ -5,6 +5,6 @@ type TitleProps = {
 
 export function Title ({children, className}:TitleProps){
     return(
-        <h1 className={`text-2xl font-bold ${className}`}>{children}</h1>
+        <h1 className={`text-xl font-bold lg:text-2xl ${className}`}>{children}</h1>
     )
 }
