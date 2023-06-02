@@ -1,23 +1,26 @@
-type TextFieldProps = {
+type TextAreaProps = {
   placeholder: string;
-  value: string;
+  name: string;
+  //value: string;
   className?: string;
-  onChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  //onChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
   row:number
 };
 
 export function TextArea({
   placeholder,
-  value,
-  onChange,
+  name,
+  //value,
+  //onChange,
   className,
   row,
-}: TextFieldProps) {
+}: TextAreaProps) {
   return (
     <textarea
       placeholder={placeholder}
-      value={value}
-      onChange={onChange}
+      name={name}
+      //value={value}
+      //onChange={onChange}
       className={className}
       rows={row}
     />

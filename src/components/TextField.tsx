@@ -1,18 +1,20 @@
 type TextFieldProps = {
     placeholder: string;
-    value:string;
-    className?:string
+    //value:string;
+    name: string;
+    className?:string;
     type?:string
-    onChange: (event:React.ChangeEvent<HTMLInputElement>)=> void
+    //onChange: (event:React.ChangeEvent<HTMLInputElement>)=> void
 }
 
-export function TextField({placeholder,value, onChange, className, type}:TextFieldProps){
+export function TextField({placeholder,name, className, type}:TextFieldProps){
     return(
         <input
         placeholder={placeholder}
-        value={value}
+        name={name}
+        //value={value}
         type= {type}
-        onChange={onChange}
+        //onChange={onChange}
         className={className} />
     )
 }
