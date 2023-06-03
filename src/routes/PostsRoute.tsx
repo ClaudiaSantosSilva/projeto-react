@@ -16,7 +16,7 @@ interface IPost {
 const initialPosts: IPost[] = [];
 const initialLoading = true;
 
-export function NotepadsRoute() {
+export function PostsRoute() {
   const [posts, setPosts] = useState(initialPosts);
   const [loading, setLoading] = useState(initialLoading);
 

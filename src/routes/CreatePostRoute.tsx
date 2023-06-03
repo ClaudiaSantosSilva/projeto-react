@@ -9,7 +9,7 @@ import { axiosapi } from "../axiosapi"
 import { PostSchema } from "../postSchema"
 import { ErrorMessage } from "../components/ErrorMessage"
 
-export function CreateNotepadRoute() {
+export function CreatePostRoute() {
     const navigate= useNavigate()
     const zo= useZorm("create-post", PostSchema, {
         async onValidSubmit (event){
