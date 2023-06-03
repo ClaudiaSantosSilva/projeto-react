@@ -41,7 +41,6 @@ export function CreateNotepadRoute() {
             name={zo.fields.title()}
             type="text"
             placeholder="Digite o título"
-            name={zo.fields.title()}
           />
           {zo.errors.title((error) => (
             <ErrorMessage>{error.message}</ErrorMessage>
@@ -54,7 +53,7 @@ export function CreateNotepadRoute() {
             name={zo.fields.subtitle()}
             type="text"
             placeholder="Digite o subtítulo"
-            name={zo.fields.subtitle()}
+            
           />
           {zo.errors.subtitle((error) => (
             <ErrorMessage>{error.message}</ErrorMessage>
@@ -67,7 +66,7 @@ export function CreateNotepadRoute() {
             row={4}
             name={zo.fields.content()}
             placeholder="Digite o conteúdo"
-            name={zo.fields.content()}
+            
           />
           {zo.errors.content((error) => (
             <ErrorMessage>{error.message}</ErrorMessage>
