@@ -1,6 +1,7 @@
 import { FcGlobe as LogoIcon } from "react-icons/fc";
 import { Link } from "react-router-dom"
 import { Title } from "../components/Title"
+import { LinkButton } from "./LinkButton"
 
 export function AppBar() {
     return (
@@ -10,9 +11,9 @@ export function AppBar() {
         </div>
 
         <div className="flex items-end my-2">
-          <Link to="/criar-posts" className="bg-blue-400 text-slate-50 font-bold uppercase py-1 px-3 mx-2 rounded-md">
+          <LinkButton to="/criar-posts">
             Criar posts
-          </Link>
+          </LinkButton>
         </div>
       </header>
     );
@@ -27,3 +28,4 @@ function Logo() {
   );
 }
 
+//animate-spin!!!!!!

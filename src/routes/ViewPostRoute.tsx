@@ -4,6 +4,7 @@ import { Card } from "../components/Card"
 import { Title } from "../components/Title"
 import { useParams, useNavigate } from "react-router-dom"
 import { Button } from "../components/Button"
+import { LinkButton } from "../components/LinkButton"
 import toast from "react-simple-toasts"
 
 const initialPost = {
@@ -45,6 +46,7 @@ export function ViewPostRoute(){
           <Button className="bg-red-500 hover:bg-red-700" onClick={deletePost}>
             Deletar
           </Button>
+          <LinkButton className="bg-amber-200 hover:bg-amber-400" to={`/editar-post/${params.id}`}>Editar</LinkButton>
         </div>
         <div className="text-gray-400 mb-2">#{post.id}</div>
         <div className="text-gray-400">

@@ -5,6 +5,7 @@ import { Home } from "./routes/Home"
 import { PostsRoute } from "./routes/PostsRoute"
 import { CreatePostRoute } from "./routes/CreatePostRoute"
 import { ViewPostRoute } from "./routes/ViewPostRoute" 
+import { EditPostRoute } from "./routes/EditPostRoute"
 
 export default function App() {
   
@@ -17,6 +18,7 @@ export default function App() {
           <Route path="/ver-posts" element={<PostsRoute />} />
           <Route path="/criar-posts" element={<CreatePostRoute />} />
           <Route path="/ver-post/:id" element={<ViewPostRoute />} />
+          <Route path="/editar-post/:id" element={<EditPostRoute />} />
         </Routes>
         <Footer />
       </div>
