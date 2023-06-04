@@ -21,7 +21,7 @@ export function EditPostRoute() {
   };
 
   return (
-    <Card className="md:w-full md:px-4 lg:w-full lg:px-4">
+    <div className="md:w-full md:px-4 lg:w-full lg:px-8">
       <Title className="text-center mb-4 uppercase mt-4 font-mono">
         {texts.title}
       </Title>
@@ -45,7 +45,7 @@ export function EditPostRoute() {
 
         <Button type="submit">{texts.submit}</Button>
       </form>
-    </Card>
+    </div>
   );
   
 }

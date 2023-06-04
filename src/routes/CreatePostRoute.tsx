@@ -35,7 +35,7 @@ export function CreatePostRoute() {
 
 
   return (
-    <Card className="md:w-full md:px-4 lg:w-full lg:px-8">
+    <div className="md:w-full md:px-4 lg:w-full lg:px-8">
       <form
         ref={zo.ref}
         className="flex flex-col gap-4 mx-2 md:max-w-screen-md md:mx-auto"
@@ -88,6 +88,6 @@ export function CreatePostRoute() {
 
         <Button type="submit">{texts.submit}</Button>
       </form>
-    </Card>
+    </div>
   );
 }
