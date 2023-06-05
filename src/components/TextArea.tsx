@@ -5,6 +5,7 @@ type TextAreaProps = {
   className?: string;
   //onChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
   row?:number
+  defaultValue?:string
 };
 
 export function TextArea({
@@ -14,6 +15,7 @@ export function TextArea({
   //onChange,
   className,
   row,
+  defaultValue,
 }: TextAreaProps) {
   return (
     <textarea
@@ -23,6 +25,7 @@ export function TextArea({
       //onChange={onChange}
       className={className}
       rows={row}
+      defaultValue={defaultValue}
     />
   );
 }
