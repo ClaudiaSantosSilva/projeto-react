@@ -22,10 +22,10 @@ const texts = {
 
 const initialPost = {
   id: 0,
-  title: " ",
-  subtitle: " ",
-  content: " ",
-  created_at: " ",
+  title: "",
+  subtitle: "",
+  content: "",
+  created_at: "",
 };
 
 export function EditPostRoute() {
