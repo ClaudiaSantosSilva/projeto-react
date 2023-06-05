@@ -4,7 +4,7 @@ type TextAreaProps = {
   //value: string;
   className?: string;
   //onChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
-  row:number
+  row?:number
 };
 
 export function TextArea({
