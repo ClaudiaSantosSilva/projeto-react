@@ -40,7 +40,7 @@ export function CreatePostRoute() {
         ref={zo.ref}
         className="flex flex-col gap-4 mx-2 md:max-w-screen-md md:mx-auto"
       >
-        <Title className="text-center mb-4 uppercase mt-4 font-mono">
+        <Title className="text-center mb-10 uppercase mt-20 font-mono">
           {texts.title}
         </Title>
 
@@ -86,7 +86,7 @@ export function CreatePostRoute() {
           ))}
         </div>
 
-        <Button type="submit">{texts.submit}</Button>
+        <Button className="mb-10" type="submit">{texts.submit}</Button>
       </form>
     </div>
   );

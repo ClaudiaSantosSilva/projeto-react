@@ -56,12 +56,12 @@ export function EditPostRoute() {
 
   return (
     <div className="md:w-full md:px-4 lg:w-full lg:px-8">
-      <Title className="text-center mb-4 uppercase mt-4 font-mono">
+      <Title className="text-center mb-10 uppercase mt-20 font-mono">
         {texts.title} #{params.id}
       </Title>
       <form
         ref={zo.ref}
-        className="flex flex-col gap-4 mx-2 md:max-w-screen-md md:mx-auto"
+        className="flex flex-col gap-4 mx-2 mb-10 md:max-w-screen-md md:mx-auto"
       >
         <div className="pb-2 gap-1 flex flex-col">
         <TextField

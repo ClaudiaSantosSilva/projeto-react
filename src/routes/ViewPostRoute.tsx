@@ -41,12 +41,17 @@ export function ViewPostRoute(){
     },[])
 
     return (
-      <Card className="md:w-4/5 lg:w-5/6 mx-20">
+      <Card className="md:w-4/5 lg:w-5/6 mx-20 ">
         <div className="flex justify-end">
           <Button className="bg-red-500 hover:bg-red-700" onClick={deletePost}>
             Deletar
           </Button>
-          <LinkButton className="bg-amber-200 hover:bg-amber-400" to={`/editar-post/${params.id}`}>Editar</LinkButton>
+          <LinkButton
+            className="bg-amber-200 hover:bg-amber-400"
+            to={`/editar-post/${params.id}`}
+          >
+            Editar
+          </LinkButton>
         </div>
         <div className="text-gray-400 mb-2">#{post.id}</div>
         <div className="text-gray-400">
@@ -55,7 +60,7 @@ export function ViewPostRoute(){
         <Title>{post.title}</Title>
         <p className="mb-4 text-gray-500">{post.subtitle}</p>
         <p>{post.content}</p>
-        <div className="flex justify-end">
+        <div className="flex justify-end mb-10">
           <Button onClick={() => navigate("/ver-posts")}>Voltar</Button>
         </div>
       </Card>
