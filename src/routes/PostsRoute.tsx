@@ -3,6 +3,7 @@ import { FaSpinner } from "react-icons/fa";
 import { Card } from "../components/Card";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { Breadcrumbs } from "../components/Breadcrumbs"
 
 interface IPost {
   id:number,
@@ -43,6 +44,18 @@ export function PostsRoute() {
           <FaSpinner className="text-2xl text-blue-700 animate-spin" />
         </div>
       )}
+      <div>
+        <Breadcrumbs
+          links={[
+            { href: "/", label: "Home" },
+            {
+              href: "/ver-posts",
+              label: "Ver posts",
+            },
+          ]}
+        />
+      </div>
+
       {posts.map((post) => {
         return (
           <Card key={post.id}>

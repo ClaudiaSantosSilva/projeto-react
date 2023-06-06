@@ -22,10 +22,9 @@ export function AppBar() {
 function Logo() {
   return (
     <Link to="/">
-      <LogoIcon className="text-5xl" />
+      <LogoIcon className="text-5xl animate-spin" />
       <Title className="uppercase">Viagens pelo mundo</Title>
     </Link>
   );
 }
 
-//animate-spin!!!!!!

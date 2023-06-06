@@ -2,13 +2,13 @@ import { useZorm } from "react-zorm"
 import { useNavigate } from "react-router-dom"
 import  toast from "react-simple-toasts"
 import { Button } from "../components/Button"
-import { Card } from "../components/Card"
 import { TextField } from "../components/TextField"
 import { TextArea } from "../components/TextArea"
 import { Title } from "../components/Title"
 import { axiosapi } from "../axiosapi"
 import { PostSchema } from "../postSchema"
 import { ErrorMessage } from "../components/ErrorMessage"
+import { Breadcrumbs } from "../components/Breadcrumbs"
 
 export function CreatePostRoute() {
   const texts = {
@@ -36,14 +36,28 @@ export function CreatePostRoute() {
 
   return (
     <div className="md:w-full md:px-4 lg:w-full lg:px-8">
+      <Breadcrumbs
+        links={[
+          { href: "/", label: "Home" },
+          {
+            href: "/ver-posts",
+            label: "Ver posts",
+          },
+          {
+            href: "/criar-posts",
+            label: "Criar posts",
+          },
+        ]}
+      />
+
+      <Title className="text-center mb-10 uppercase mt-20 font-mono">
+        {texts.title}
+      </Title>
+
       <form
         ref={zo.ref}
         className="flex flex-col gap-4 mx-2 md:max-w-screen-md md:mx-auto"
       >
-        <Title className="text-center mb-10 uppercase mt-20 font-mono">
-          {texts.title}
-        </Title>
-
         <div className="pb-2 gap-1 flex flex-col">
           <TextField
             className={`px-2 py-1 rounded-md border focus:border-blue-500 outline-none ${zo.errors.title(
@@ -86,7 +100,9 @@ export function CreatePostRoute() {
           ))}
         </div>
 
-        <Button className="mb-10" type="submit">{texts.submit}</Button>
+        <Button className="mb-10" type="submit">
+          {texts.submit}
+        </Button>
       </form>
     </div>
   );

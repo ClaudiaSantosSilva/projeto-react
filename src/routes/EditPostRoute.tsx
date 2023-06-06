@@ -9,6 +9,7 @@ import { TextArea } from "../components/TextArea"
 import { PostSchema } from "../postSchema";
 import { axiosapi } from "../axiosapi"
 import toast from "react-simple-toasts"
+import { Breadcrumbs } from "../components/Breadcrumbs";
 
 const texts = {
   title: "Editar post",
@@ -56,6 +57,24 @@ export function EditPostRoute() {
 
   return (
     <div className="md:w-full md:px-4 lg:w-full lg:px-8">
+      <Breadcrumbs
+        links={[
+          { href: "/", label: "Home" },
+          {
+            href: "/ver-posts",
+            label: "Ver posts",
+          },
+          {
+            href: `/ver-post/${params.id}`,
+            label: `Ver post ${params.id}`,
+          },
+          {
+            href: `/editar-post/${params.id}`,
+            label: `Editar post ${params.id}`,
+          },
+        ]}
+      />
+
       <Title className="text-center mb-10 uppercase mt-20 font-mono">
         {texts.title} #{params.id}
       </Title>
@@ -64,41 +83,41 @@ export function EditPostRoute() {
         className="flex flex-col gap-4 mx-2 mb-10 md:max-w-screen-md md:mx-auto"
       >
         <div className="pb-2 gap-1 flex flex-col">
-        <TextField
-          type="text"
-          className="px-2 py-1 rounded-md border focus:border-blue-500 outline-none"
-          placeholder={texts.titlePlaceholder}
-          name={zo.fields.title()}
-          defaultValue={initialFormState.title}
-        />
-        {zo.errors.title((error) => (
-          <ErrorMessage>{error.message}</ErrorMessage>
-        ))}
+          <TextField
+            type="text"
+            className="px-2 py-1 rounded-md border focus:border-blue-500 outline-none"
+            placeholder={texts.titlePlaceholder}
+            name={zo.fields.title()}
+            defaultValue={initialFormState.title}
+          />
+          {zo.errors.title((error) => (
+            <ErrorMessage>{error.message}</ErrorMessage>
+          ))}
         </div>
 
         <div className="pb-2 gap-1 flex flex-col">
-        <TextField
-          type="text"
-          className="px-2 py-1 rounded-md border focus:border-blue-500 outline-none"
-          placeholder={texts.subtitlePlaceholder}
-          name={zo.fields.subtitle()}
-          defaultValue={initialFormState.subtitle}
-        />
-        {zo.errors.subtitle((error) => (
-          <ErrorMessage>{error.message}</ErrorMessage>
-        ))}
+          <TextField
+            type="text"
+            className="px-2 py-1 rounded-md border focus:border-blue-500 outline-none"
+            placeholder={texts.subtitlePlaceholder}
+            name={zo.fields.subtitle()}
+            defaultValue={initialFormState.subtitle}
+          />
+          {zo.errors.subtitle((error) => (
+            <ErrorMessage>{error.message}</ErrorMessage>
+          ))}
         </div>
 
         <div className="pb-2 gap-1 flex flex-col">
-        <TextArea
-          className="px-2 py-1 rounded-md border focus:border-blue-500 outline-none resize:none"
-          placeholder={texts.contentPlaceholder}
-          name={zo.fields.content()}
-          defaultValue={initialFormState.content}
-        />
-        {zo.errors.content((error) => (
-          <ErrorMessage>{error.message}</ErrorMessage>
-        ))}
+          <TextArea
+            className="px-2 py-1 rounded-md border focus:border-blue-500 outline-none resize:none"
+            placeholder={texts.contentPlaceholder}
+            name={zo.fields.content()}
+            defaultValue={initialFormState.content}
+          />
+          {zo.errors.content((error) => (
+            <ErrorMessage>{error.message}</ErrorMessage>
+          ))}
         </div>
 
         <Button type="submit">{texts.submit}</Button>
