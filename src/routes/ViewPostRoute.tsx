@@ -7,6 +7,7 @@ import { Button } from "../components/Button"
 import { LinkButton } from "../components/LinkButton"
 import toast from "react-simple-toasts"
 import { Breadcrumbs } from "../components/Breadcrumbs"
+import { Helmet } from "react-helmet"
 
 const initialPost = {
     id:0,
@@ -43,6 +44,9 @@ export function ViewPostRoute(){
 
     return (
       <div>
+        <Helmet>
+          <title>Ver post #{params.id}</title>
+        </Helmet>
         <Breadcrumbs
           links={[
             { href: "/", label: "Home" },
@@ -52,7 +56,7 @@ export function ViewPostRoute(){
             },
             {
               href: `/ver-post/${params.id}`,
-              label: `Ver posts ${params.id}`,
+              label: `Ver post #${params.id}`,
             },
           ]}
         />

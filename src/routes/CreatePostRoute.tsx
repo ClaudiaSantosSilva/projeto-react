@@ -9,6 +9,7 @@ import { axiosapi } from "../axiosapi"
 import { PostSchema } from "../postSchema"
 import { ErrorMessage } from "../components/ErrorMessage"
 import { Breadcrumbs } from "../components/Breadcrumbs"
+import { Helmet } from "react-helmet"
 
 export function CreatePostRoute() {
   const texts = {
@@ -36,6 +37,9 @@ export function CreatePostRoute() {
 
   return (
     <div className="md:w-full md:px-4 lg:w-full lg:px-8">
+      <Helmet>
+        <title>Criar posts</title>
+      </Helmet>
       <Breadcrumbs
         links={[
           { href: "/", label: "Home" },

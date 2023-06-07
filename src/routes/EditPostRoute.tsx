@@ -10,6 +10,7 @@ import { PostSchema } from "../postSchema";
 import { axiosapi } from "../axiosapi"
 import toast from "react-simple-toasts"
 import { Breadcrumbs } from "../components/Breadcrumbs";
+import { Helmet } from "react-helmet"
 
 const texts = {
   title: "Editar post",
@@ -57,6 +58,9 @@ export function EditPostRoute() {
 
   return (
     <div className="md:w-full md:px-4 lg:w-full lg:px-8">
+        <Helmet>
+            <title>Editar post #{params.id}</title>
+        </Helmet>
       <Breadcrumbs
         links={[
           { href: "/", label: "Home" },
@@ -65,11 +69,11 @@ export function EditPostRoute() {
           },
           {
             href: `/ver-post/${params.id}`,
-            label: `Ver post ${params.id}`,
+            label: `Ver post #${params.id}`,
           },
           {
             href: `/editar-post/${params.id}`,
-            label: `Editar post ${params.id}`,
+            label: `Editar post #${params.id}`,
           },
         ]}
       />

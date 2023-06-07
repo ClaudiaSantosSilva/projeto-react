@@ -5,7 +5,7 @@ import { LinkButton } from "./LinkButton"
 
 export function AppBar() {
     return (
-      <header className="h-20 bg-white flex flex-row justify-between">
+      <header className="h-20 bg-white shadow-md flex flex-row justify-between">
         <div className="mx-2">
           <Logo />
         </div>

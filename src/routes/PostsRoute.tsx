@@ -4,6 +4,7 @@ import { Card } from "../components/Card";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Breadcrumbs } from "../components/Breadcrumbs"
+import { Helmet } from "react-helmet"
 
 interface IPost {
   id:number,
@@ -45,6 +46,9 @@ export function PostsRoute() {
         </div>
       )}
       <div>
+        <Helmet>
+          <title>Ver posts</title>
+        </Helmet>
         <Breadcrumbs
           links={[
             { href: "/", label: "Home" },
