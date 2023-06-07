@@ -19,7 +19,11 @@ export function Home() {
       </Link>
 
       <div className="m-20">
-        <Image alt= "imagem da home" src="imagens/aviao-no-ceu.webp" className="rounded-full" />
+        <Image
+          alt="imagem da home"
+          src="imagens/aviao-no-ceu.webp"
+          className="rounded-full"
+        />
       </div>
     </div>
   );
