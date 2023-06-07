@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 type BreadcrumbsProps = {
     links:{
         href:string,
-        label: string,
+        label:React.ReactNode,
     }[]
 }
 
