@@ -60,9 +60,8 @@ export function EditPostRoute() {
       <Breadcrumbs
         links={[
           { href: "/", label: "Home" },
-          {
-            href: "/ver-posts",
-            label: "Ver posts",
+          { href: "/ver-posts", 
+            label: "Ver posts" 
           },
           {
             href: `/ver-post/${params.id}`,
@@ -126,3 +125,5 @@ export function EditPostRoute() {
   );
   
 }
+
+
