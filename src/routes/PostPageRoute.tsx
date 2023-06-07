@@ -1,62 +1,52 @@
+import { useParams } from "react-router-dom"
+import { useState, useEffect } from "react"
 import { axiosapi } from "../axiosapi";
-import { FaSpinner } from "react-icons/fa";
 import { Card } from "../components/Card";
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Breadcrumbs } from "../components/Breadcrumbs"
-import { Helmet } from "react-helmet"
-import { LinkButton } from "../components/LinkButton"
-
-interface IPost {
-  id:number,
-  author?: string,
-  title:string,
-  subtitle: string,
-  content: string,
-  created_at: string,
-  
-}
+import { Breadcrumbs } from "../components/Breadcrumbs";
+import { Helmet } from "react-helmet";
+import { LinkButton } from "../components/LinkButton";
 
 const pageSize= 10
-const initialPostsList: { notepads: IPost[], count: number} = {
-  count:0,
-  notepads:[],
+
+interface IPost {
+  id: number;
+  author?: string;
+  title: string;
+  subtitle: string;
+  content: string;
+  created_at: string;
+}
+
+const initialPostsList: { notepads: IPost[]; count: number } = {
+  count: 0,
+  notepads: [],
 };
 
-const initialLoading = true;
-
-export function PostsRoute() {
-  const [postsList, setPostsList] = useState(initialPostsList);
-  const [loading, setLoading] = useState(initialLoading);
-  const pageCount = Math.ceil(postsList.count / pageSize);
-  const pages = new Array(pageCount).fill(null).map((_, index) => index + 1);
+export function PostPageRoute (){
+    const params = useParams()
+    const offset = (parseInt(params.page) - 1) * pageSize
+    const [postsList, setPostsList] = useState(initialPostsList);
+    const pageCount = Math.ceil(postsList.count / pageSize);
+    const pages = new Array(pageCount).fill(null).map((_, index) => index + 1);
 
   async function loadPosts() {
-    const response = await axiosapi.get("/notepads");
+    const response = await axiosapi.get(`/notepads?limit=${pageSize}&offset=${offset}`);
     const nextPosts = response.data;
     setPostsList(nextPosts);
   }
 
   useEffect(() => {
     loadPosts();
-  }, []);
+  }, [params.page]);
 
-  useEffect(() => {
-    if (postsList.notepads.length > 0) {
-      setLoading(false);
-    }
-  }, [postsList]);
-
+  
   return (
     <>
-      {loading && (
-        <div className="flex justify-center mt-2">
-          <FaSpinner className="text-2xl text-blue-700 animate-spin" />
-        </div>
-      )}
+      
       <div>
         <Helmet>
-          <title>Ver posts</title>
+          <title> Ver posts página {params.page}</title>
         </Helmet>
         <Breadcrumbs
           links={[
@@ -89,7 +79,7 @@ export function PostsRoute() {
 
       <div className="flex flex-row justify-center gap-2 flex-wrap pb-20 mt-10">
         {pages.map((page) => (
-          <LinkButton key={page} to={`/ver-posts/${page}`}>
+          <LinkButton key={page} to={`/ver-posts/${page}`} className={page===parseInt(params.page)?"bg-blue-700":""}>
             {page}
           </LinkButton>
         ))}
@@ -98,3 +88,4 @@ export function PostsRoute() {
     </>
   );
 }
+

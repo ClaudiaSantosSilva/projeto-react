@@ -40,7 +40,7 @@ export function ViewPostRoute(){
      
     useEffect(()=>{
         loadPost()
-    },[])
+    },[params.id])
 
     return (
       <div>
