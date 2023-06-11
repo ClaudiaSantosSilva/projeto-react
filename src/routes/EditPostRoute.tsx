@@ -4,13 +4,13 @@ import { useZorm } from "react-zorm";
 import { Title } from "../components/Title";
 import { Button } from "../components/Button";
 import { ErrorMessage } from "../components/ErrorMessage";
-import { TextField } from "../components/TextField"
-import { TextArea } from "../components/TextArea"
+import { TextField } from "../components/TextField";
+import { TextArea } from "../components/TextArea";
 import { PostSchema } from "../postSchema";
-import { axiosapi } from "../axiosapi"
-import toast from "react-simple-toasts"
+import { axiosApi } from "../axiosApi";
+import toast from "react-simple-toasts";
 import { Breadcrumbs } from "../components/Breadcrumbs";
-import { Helmet } from "react-helmet"
+import { Helmet } from "react-helmet";
 
 const texts = {
   title: "Editar post",
@@ -32,23 +32,26 @@ const initialPost = {
 
 export function EditPostRoute() {
   const params = useParams();
-  const navigate=useNavigate()
-  const [initialFormState, setInitialFormState] = useState(initialPost)
-  const zo= useZorm("edit-post", PostSchema, {
-    async onValidSubmit(event){
-        event.preventDefault()
-        const response= await axiosapi.patch(`/notepads/${params.id}`, event.data)
-        if (response.data.success){
-            toast(texts.submitSuccess)
-            navigate(`/ver-post/${params.id}`)
-        } else{
-            toast(texts.submitFailure)
-        }
-    }
-    })
+  const navigate = useNavigate();
+  const [initialFormState, setInitialFormState] = useState(initialPost);
+  const zo = useZorm("edit-post", PostSchema, {
+    async onValidSubmit(event) {
+      event.preventDefault();
+      const response = await axiosApi.patch(
+        `/notepads/${params.id}`,
+        event.data
+      );
+      if (response.data.success) {
+        toast(texts.submitSuccess);
+        navigate(`/ver-post/${params.id}`);
+      } else {
+        toast(texts.submitFailure);
+      }
+    },
+  });
 
   async function loadPost() {
-    const response = await axiosapi.get(`/notepads/${params.id}`);
+    const response = await axiosApi.get(`/notepads/${params.id}`);
     setInitialFormState(response.data);
   }
 
@@ -58,15 +61,13 @@ export function EditPostRoute() {
 
   return (
     <div className="md:w-full md:px-4 lg:w-full lg:px-8">
-        <Helmet>
-            <title>Editar post #{params.id}</title>
-        </Helmet>
+      <Helmet>
+        <title>Editar post #{params.id}</title>
+      </Helmet>
       <Breadcrumbs
         links={[
           { href: "/", label: "Home" },
-          { href: "/ver-posts", 
-            label: "Ver posts" 
-          },
+          { href: "/ver-posts", label: "Ver posts" },
           {
             href: `/ver-post/${params.id}`,
             label: `Ver post #${params.id}`,
@@ -127,7 +128,4 @@ export function EditPostRoute() {
       </form>
     </div>
   );
-  
 }
-
-

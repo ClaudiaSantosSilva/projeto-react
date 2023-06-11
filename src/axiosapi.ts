@@ -1,5 +1,5 @@
 import axios from "axios";
 
-export const axiosapi = axios.create({
+export const axiosApi = axios.create({
   baseURL:"https://notepads.eduardovelho.com",
 });

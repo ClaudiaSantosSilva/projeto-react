@@ -1,13 +1,13 @@
-import { useParams } from "react-router-dom"
-import { useState, useEffect } from "react"
-import { axiosapi } from "../axiosapi";
+import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { axiosApi } from "../axiosApi";
 import { Card } from "../components/Card";
 import { Link } from "react-router-dom";
 import { Breadcrumbs } from "../components/Breadcrumbs";
 import { Helmet } from "react-helmet";
 import { LinkButton } from "../components/LinkButton";
 
-const pageSize= 10
+const pageSize = 10;
 
 interface IPost {
   id: number;
@@ -23,15 +23,17 @@ const initialPostsList: { notepads: IPost[]; count: number } = {
   notepads: [],
 };
 
-export function PostPageRoute (){
-    const params = useParams()
-    const offset = (Number(params.page) - 1) * pageSize;
-    const [postsList, setPostsList] = useState(initialPostsList);
-    const pageCount = Math.ceil(postsList.count / pageSize);
-    const pages = new Array(pageCount).fill(null).map((_, index) => index + 1);
+export function PostPageRoute() {
+  const params = useParams();
+  const offset = (Number(params.page) - 1) * pageSize;
+  const [postsList, setPostsList] = useState(initialPostsList);
+  const pageCount = Math.ceil(postsList.count / pageSize);
+  const pages = new Array(pageCount).fill(null).map((_, index) => index + 1);
 
   async function loadPosts() {
-    const response = await axiosapi.get(`/notepads?limit=${pageSize}&offset=${offset}`);
+    const response = await axiosApi.get(
+      `/notepads?limit=${pageSize}&offset=${offset}`
+    );
     const nextPosts = response.data;
     setPostsList(nextPosts);
   }
@@ -40,10 +42,8 @@ export function PostPageRoute (){
     loadPosts();
   }, [params.page]);
 
-  
   return (
     <>
-      
       <div>
         <Helmet>
           <title> Ver posts página {params.page}</title>
@@ -79,13 +79,16 @@ export function PostPageRoute (){
 
       <div className="flex flex-row justify-center gap-2 flex-wrap pb-20 mt-10">
         {pages.map((page) => (
-          <LinkButton key={page} to={`/ver-posts/${page}`} onClick={()=>window.scrollTo(0,0)} className={page===Number(params.page)?"bg-blue-700":""}>
+          <LinkButton
+            key={page}
+            to={`/ver-posts/${page}`}
+            onClick={() => window.scrollTo(0, 0)}
+            className={page === Number(params.page) ? "bg-blue-700" : ""}
+          >
             {page}
           </LinkButton>
         ))}
       </div>
-
     </>
   );
 }
-

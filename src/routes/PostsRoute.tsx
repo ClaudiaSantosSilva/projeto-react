@@ -1,26 +1,25 @@
-import { axiosapi } from "../axiosapi";
+import { axiosApi } from "../axiosApi";
 import { FaSpinner } from "react-icons/fa";
 import { Card } from "../components/Card";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Breadcrumbs } from "../components/Breadcrumbs"
-import { Helmet } from "react-helmet"
-import { LinkButton } from "../components/LinkButton"
+import { Breadcrumbs } from "../components/Breadcrumbs";
+import { Helmet } from "react-helmet";
+import { LinkButton } from "../components/LinkButton";
 
 interface IPost {
-  id:number,
-  author?: string,
-  title:string,
-  subtitle: string,
-  content: string,
-  created_at: string,
-  
+  id: number;
+  author?: string;
+  title: string;
+  subtitle: string;
+  content: string;
+  created_at: string;
 }
 
-const pageSize= 10
-const initialPostsList: { notepads: IPost[], count: number} = {
-  count:0,
-  notepads:[],
+const pageSize = 10;
+const initialPostsList: { notepads: IPost[]; count: number } = {
+  count: 0,
+  notepads: [],
 };
 
 const initialLoading = true;
@@ -32,7 +31,7 @@ export function PostsRoute() {
   const pages = new Array(pageCount).fill(null).map((_, index) => index + 1);
 
   async function loadPosts() {
-    const response = await axiosapi.get("/notepads");
+    const response = await axiosApi.get("/notepads");
     const nextPosts = response.data;
     setPostsList(nextPosts);
   }
@@ -94,7 +93,6 @@ export function PostsRoute() {
           </LinkButton>
         ))}
       </div>
-
     </>
   );
 }

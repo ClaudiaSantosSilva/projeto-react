@@ -1,15 +1,15 @@
-import { useZorm } from "react-zorm"
-import { useNavigate } from "react-router-dom"
-import  toast from "react-simple-toasts"
-import { Button } from "../components/Button"
-import { TextField } from "../components/TextField"
-import { TextArea } from "../components/TextArea"
-import { Title } from "../components/Title"
-import { axiosapi } from "../axiosapi"
-import { PostSchema } from "../postSchema"
-import { ErrorMessage } from "../components/ErrorMessage"
-import { Breadcrumbs } from "../components/Breadcrumbs"
-import { Helmet } from "react-helmet"
+import { useZorm } from "react-zorm";
+import { useNavigate } from "react-router-dom";
+import toast from "react-simple-toasts";
+import { Button } from "../components/Button";
+import { TextField } from "../components/TextField";
+import { TextArea } from "../components/TextArea";
+import { Title } from "../components/Title";
+import { axiosApi } from "../axiosApi";
+import { PostSchema } from "../postSchema";
+import { ErrorMessage } from "../components/ErrorMessage";
+import { Breadcrumbs } from "../components/Breadcrumbs";
+import { Helmet } from "react-helmet";
 
 export function CreatePostRoute() {
   const texts = {
@@ -20,20 +20,19 @@ export function CreatePostRoute() {
     submit: "Enviar",
   };
 
-    const navigate= useNavigate()
-    const zo= useZorm("create-post", PostSchema, {
-        async onValidSubmit (event){
-            event.preventDefault()
-            const response = await axiosapi.post("/notepads", event.data)
-            if (response.data.success){
-                toast ("Seu post foi criado com sucesso!")
-                navigate ("/ver-posts")
-            } else{
-                toast ("Houve um erro ao criar o seu post.")
-            }
-        }
-    })
-
+  const navigate = useNavigate();
+  const zo = useZorm("create-post", PostSchema, {
+    async onValidSubmit(event) {
+      event.preventDefault();
+      const response = await axiosApi.post("/notepads", event.data);
+      if (response.data.success) {
+        toast("Seu post foi criado com sucesso!");
+        navigate("/ver-posts");
+      } else {
+        toast("Houve um erro ao criar o seu post.");
+      }
+    },
+  });
 
   return (
     <div className="md:w-full md:px-4 lg:w-full lg:px-8">
